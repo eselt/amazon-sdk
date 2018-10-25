@@ -84,6 +84,11 @@ abstract class MarketplaceWebService_Model
        return $this;
     }
 
+
+    protected function _toXMLFragment() 
+    {
+        return $this->toXMLFragment();
+    }
          
     /**
      * XML fragment representation of this object
