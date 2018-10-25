@@ -124,7 +124,11 @@ abstract class MarketplaceWebService_Model
                         $xml .= "</$fieldName>";
                     } else {
                         $xml .= "<$fieldName>";
-                        $xml .= $this->escapeXML($fieldValue);
+                        if ($fieldValue instanceof DateTime) {
+                            $xml .= $fieldValue->format('Y-m-d\TH:i:s\Z');
+                        }else{
+                            $xml .= $this->escapeXML($fieldValue);
+                        }
                         $xml .= "</$fieldName>";
                     }
                 }
