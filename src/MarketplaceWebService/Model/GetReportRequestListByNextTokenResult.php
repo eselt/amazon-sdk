@@ -204,7 +204,10 @@ class MarketplaceWebService_Model_GetReportRequestListByNextTokenResult extends 
      */
     public function isSetReportRequestInfo()
     {
-        return count ($this->fields['ReportRequestInfo']['FieldValue']) > 0;
+        return
+            isset($this->fields['ReportRequestInfo']['FieldValue']) &&
+            is_countable($this->fields['ReportRequestInfo']['FieldValue']) &&
+            count ($this->fields['ReportRequestInfo']['FieldValue']) > 0;
     }
 
 

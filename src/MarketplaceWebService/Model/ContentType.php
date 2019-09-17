@@ -64,7 +64,10 @@ class MarketplaceWebService_Model_ContentType  extends MarketplaceWebService_Mod
     }
     
     public function isSetParameters() {
-    	return count ($this->fields['Parameters']['FieldValue']) > 0;
+    	return
+            isset($this->fields['Parameters']['FieldValue']) &&
+            is_countable($this->fields['Parameters']['FieldValue']) &&
+            count ($this->fields['Parameters']['FieldValue']) > 0;
     }
 
 	public function toString() {

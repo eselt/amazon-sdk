@@ -204,7 +204,10 @@ class MarketplaceWebService_Model_GetFeedSubmissionListResult extends Marketplac
      */
     public function isSetFeedSubmissionInfo()
     {
-        return count ($this->fields['FeedSubmissionInfo']['FieldValue']) > 0;
+        return
+            isset($this->fields['FeedSubmissionInfo']['FieldValue']) &&
+            is_countable($this->fields['FeedSubmissionInfo']['FieldValue']) &&
+            count ($this->fields['FeedSubmissionInfo']['FieldValue']) > 0;
     }
 
 

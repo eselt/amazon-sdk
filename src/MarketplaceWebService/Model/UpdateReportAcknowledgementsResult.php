@@ -156,7 +156,10 @@ class MarketplaceWebService_Model_UpdateReportAcknowledgementsResult extends Mar
      */
     public function isSetReportInfo()
     {
-        return count ($this->fields['ReportInfo']['FieldValue']) > 0;
+        return
+            isset($this->fields['ReportInfo']['FieldValue']) &&
+            is_countable($this->fields['ReportInfo']['FieldValue']) &&
+            count ($this->fields['ReportInfo']['FieldValue']) > 0;
     }
 
 

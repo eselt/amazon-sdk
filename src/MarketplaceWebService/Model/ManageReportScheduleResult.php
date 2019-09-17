@@ -156,7 +156,10 @@ class MarketplaceWebService_Model_ManageReportScheduleResult extends Marketplace
      */
     public function isSetReportSchedule()
     {
-        return count ($this->fields['ReportSchedule']['FieldValue']) > 0;
+        return
+            isset($this->fields['ReportSchedule']['FieldValue']) &&
+            is_countable($this->fields['ReportSchedule']['FieldValue']) &&
+            count ($this->fields['ReportSchedule']['FieldValue']) > 0;
     }
 
 
